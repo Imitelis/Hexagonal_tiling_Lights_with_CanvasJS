@@ -3,17 +3,14 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let huedos = 0;
-
 function getRandomInt(min, max) {
 	return Math.round(Math.random() * (max - min)) + min;
 }
 
 class Particle {
 	constructor() {
-		
 		this.speed = 2;
-		this.maxDistance = 25;
+		this.maxDistance = Math.round((canvas.width + canvas.height) * 0.015);
 		this.hue = 0;
 
 		this.reset();
