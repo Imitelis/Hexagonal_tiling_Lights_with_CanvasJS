@@ -9,8 +9,8 @@ function getRandomInt(min, max) {
 
 class Particle {
 	constructor() {
-		this.speed = 2;
-		this.maxDistance = Math.round((canvas.width + canvas.height) * 0.015);
+		this.speed = 3;
+		this.maxDistance = Math.round((canvas.width + canvas.height) * 0.018);
 		this.hue = 0;
 		this.reset();
 	}
@@ -25,7 +25,7 @@ class Particle {
 		this.radian = (Math.PI / 180) * (this.angle + 90);
 		this.time = 0;
 		this.ttl = getRandomInt(180, 300);
-		this.hue = (this.hue + getRandomInt(0, 15)) % 360;
+		this.hue = (this.hue + getRandomInt(0, 12)) % 360;
 	}
 
 	draw() {
@@ -72,7 +72,7 @@ class init {
   constructor() {
 	this.animate = this.animate.bind(this);
     	this.units = [];
-    	this.unitCount = Math.floor(canvas.width * 0.75);
+    	this.unitCount = Math.floor(canvas.width * 0.72);
 	
     	this.createUnits();
     	this.resize();
