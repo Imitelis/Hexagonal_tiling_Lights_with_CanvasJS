@@ -12,13 +12,12 @@ class Particle {
 		this.speed = 2;
 		this.maxDistance = Math.round((canvas.width + canvas.height) * 0.015);
 		this.hue = 0;
-
 		this.reset();
 	}
 
 	reset() {
-		this.x = Math.round(canvas.width / 2);
-		this.y = Math.round(canvas.height / 2);
+		this.x = Math.round(canvas.width * 0.5);
+		this.y = Math.round(canvas.height * 0.5);
 		this.sx = this.x;
 		this.sy = this.y;
 		this.angle = 60 * getRandomInt(0, 5);
@@ -26,7 +25,7 @@ class Particle {
 		this.radian = (Math.PI / 180) * (this.angle + 90);
 		this.time = 0;
 		this.ttl = getRandomInt(180, 300);
-		this.hue = Math.min(this.hue + getRandomInt(0, 7), 255);
+		this.hue = (this.hue + getRandomInt(0, 15)) % 360;
 	}
 
 	draw() {
@@ -71,13 +70,13 @@ class Particle {
 
 class init {
   constructor() {
-    this.animate = this.animate.bind(this);
-    this.units = [];
-  	this.unitCount = Math.floor(canvas.width * 0.75);
+	this.animate = this.animate.bind(this);
+    	this.units = [];
+    	this.unitCount = Math.floor(canvas.width * 0.75);
 	
-	this.createUnits();
-	this.resize();
-    this.animate();
+    	this.createUnits();
+    	this.resize();
+    	this.animate();
   }
 
   createUnits() {
@@ -89,7 +88,7 @@ class init {
   }
 
   resize() {
-    canvas.width = window.innerWidth;
+	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 	
 	ctx.fillStyle = "#222";
