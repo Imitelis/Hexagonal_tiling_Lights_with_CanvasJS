@@ -113,4 +113,4 @@ const animation = new init();
 window.addEventListener('resize',
   function () {
     animation.resize();
-  })
+})
